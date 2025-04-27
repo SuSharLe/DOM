@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #main {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main"></div>
+    <input type="color" id="color" />
+    <button onclick="changeColor()">Change Color</button>
+
+    <script>
+      function changeColor() {
+        //select element
+        let element = document.getElementById("main");
+        console.log(element, typeof element);
+
+        //select color element
+        let colorInput = document.getElementById("color");
+        console.log(colorInput.value);
+
+        //accept color from user
+        // let color = prompt("Enter color: ");
+        // console.log(color);
+
+        element.style.backgroundColor = colorInput.value;
+      }
+    </script>
+  </body>
+</html>
+
+<!-- 
+document.getElementById(); 
+document.getElementsByClassName(); 
+document.getElementsByTagName(); 
+document.getElementsByName(); 
+document.querySelector()
+document.querySelectorAll()
+-->

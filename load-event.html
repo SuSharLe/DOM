@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Click!</button>
+
+    <script>
+      window.addEventListener("load", (event) => {
+        console.log(event, typeof event);
+      });
+
+      //select the button
+      let btn = document.querySelector("button");
+
+      //attach event to the button
+      btn.addEventListener("keydown", (event) => {
+        console.log(event.key);
+      });
+
+      //attach same event to the button
+      btn.addEventListener("click", (event) => {
+        console.log(event.type);
+        event.target.innerText = "Clicked";
+        event.target.style.background = "orange";
+      });
+
+      //attach different event to the button
+      btn.addEventListener("mouseover", () => {
+        console.log("mouseover!");
+      });
+
+      btn.addEventListener("mouseout", () => {
+        console.log("mouseout!");
+      });
+    </script>
+  </body>
+</html>

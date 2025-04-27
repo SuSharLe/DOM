@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .form-control {
+      width: 250px;
+      padding: 5px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+  <body>
+    <h1>Name to Email Generator</h1>
+    <form action="">
+      <div>
+        <label for="name"> Enter your name:</label>
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id="name"
+          placeholder="Your Name"
+          oninput="convertToEmail(this)"
+        />
+      </div>
+
+      <div>
+        <label for="email">Generated Email:</label>
+        <input
+          readonly
+          type="text"
+          class="form-control"
+          name=""
+          id="email"
+          placeholder="Generated Email"
+          onclick="copyEmail(this)"
+        />
+        [click on the email and it will be copied automatically!]
+      </div>
+    </form>
+
+    <script>
+      function convertToEmail(username) {
+        let name = username.value;
+        let email = name
+          .toLowerCase()
+          .replace(/ /g, "-")
+          .replace(/\./, "")
+          .concat("@example.com");
+
+        let emailInput = document.querySelector("#email");
+        emailInput.value = email;
+      }
+
+      function copyEmail() {
+        let emailInput = document.querySelector("#email");
+        if (emailInput.value !== "") {
+          emailInput.select();
+          document.execCommand("copy");
+          alert("Copied to clipboard");
+        } else {
+          alert("No email to copy ");
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!-- 
+name to email 
+- to lowercase
+- replace all spaces into -
+- concat with @example.com
+ 
+-->

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .form-control {
+        display: block;
+        width: 250px;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      .error {
+        color: darkblue;
+        background-color: lightgray;
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="counter.html">
+      <div class="error"></div>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="Username"
+      />
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+      />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      let username = document.querySelector("#username");
+      let password = document.querySelector("#password");
+      let form = document.querySelector("form");
+      let errorDiv = document.querySelector(".error");
+
+      form.addEventListener("submit", (e) => {
+        const messages = [];
+        if (username.value === "") {
+          messages.push("- Username is required!");
+        }
+
+        if (password.value === "") {
+          messages.push("- Password is required!");
+        }
+
+        if (password.value && password.value.length < 6) {
+          messages.push("- Password should be at least 6 characters!");
+        }
+
+        if (password.value && password.value.length > 20) {
+          messages.push("- Password should be at most characters!");
+        }
+
+        if (password.value.toLowerCase() === "password") {
+          messages.push("- Password should not be <b>password</b>!");
+        }
+        if (messages.length > 0) {
+          e.preventDefault();
+          errorDiv.innerHTML = messages.join("<br>");
+        }
+      });
+    </script>
+  </body>
+</html>

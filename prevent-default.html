@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <a href="light-bulb.html">Test Toggle State</a>
+    <br />
+
+    <form action="change-color.html">
+      <input type="submit" value="Go" />
+    </form>
+  </head>
+
+  <script>
+    document
+      .querySelector("a")
+      .addEventListener("click", (e) => e.preventDefault());
+    document
+      .querySelector("form")
+      .addEventListener("submit", (e) => e.preventDefault());
+  </script>
+  <body></body>
+</html>

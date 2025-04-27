@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img id="bulb" src="images/pic_bulboff.gif" alt="" />
+    <button id="btn" onclick="toggleBulb()">Turn on</button>
+
+    <script>
+      function toggleBulb() {
+        let bulb = document.getElementById("bulb");
+        let button = document.getElementById("btn");
+
+        if (bulb.src.includes("bulboff")) {
+          bulb.src = "images/pic_bulbon.gif";
+          button.textContent = "Turn Off";
+        } else {
+          bulb.src = "images/pic_bulboff.gif";
+          button.textContent = "Turn On";
+        }
+      }
+
+      // i cant turn the light bulb off tr TnT
+    </script>
+  </body>
+</html>

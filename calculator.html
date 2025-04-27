@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 100px;
+        margin-right: 10px;
+      }
+      select {
+        width: 170px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div>
+      <label for="">Number 1</label>
+      <input type="number" name="" id="" />
+    </div>
+    <div>
+      <label for="">Number 2</label>
+      <input type="number" name="" id="" />
+    </div>
+    <div>
+      <label for="">Operator</label>
+      <select>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+    </div>
+    <div>
+      <button onclick="calculate();">Calculate</button>
+    </div>
+
+    <label for="" id="result"></label>
+    <script>
+      function calculate() {
+        let number1 = Number(document.getElementsByTagName("input")[0].value);
+        let number2 = Number(document.getElementsByTagName("input")[1].value);
+        let optr = document.getElementsByTagName("select")[0].value;
+        let result = document.getElementsByTagName("label")[3];
+        console.log(result);
+
+        let answer = 0;
+
+        switch (optr) {
+          case "+":
+            answer = number1 + number2;
+            break;
+          case "-":
+            answer = number1 - number2;
+            break;
+          case "*":
+            answer = number1 * number2;
+            break;
+          case "/":
+            answer = number1 / number2;
+            break;
+
+          default:
+            break;
+        }
+        result.innerText = answer;
+      }
+    </script>
+  </body>
+</html>

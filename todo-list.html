@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <input type="text" id="task" />
+    <button onclick="addItem()">Add</button>
+    <ul id="list"></ul>
+
+    <script>
+      function addItem() {
+        // get task form input
+        let taskInput = document.getElementById("task");
+
+        // create li element
+        let li = document.createElement("li");
+
+        let task = document.createTextNode(taskInput.value);
+        li.appendChild(task);
+        console.log(li);
+
+        // append li to ul
+        let ul = document.getElementById("list");
+        ul.appendChild(li);
+
+        // clear the text input
+        taskInput.value = "";
+
+        // auto cursor
+        taskInput.focus();
+      }
+    </script>
+  </body>
+</html>
