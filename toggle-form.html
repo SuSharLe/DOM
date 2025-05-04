@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Form</title>
+    <style>
+      .form-container {
+        display: none;
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      .radio-group {
+        margin-bottom: 15px;
+      }
+      .radio-group label {
+        margin-right: 15px;
+        cursor: pointer;
+      }
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="radio-group">
+      <input
+        type="radio"
+        id="form1-radio"
+        name="form-selector"
+        value="form1"
+        checked
+      />
+      <label for="form1-radio">Show Form 1</label>
+      <input type="radio" id="form2-radio" name="form-selector" value="form2" />
+      <label for="form2-radio">Show Form 2</label>
+    </div>
+
+    <div id="form1" class="form-container active">
+      <h2>Form 1</h2>
+      <form>
+        <label>Name:</label>
+        <input type="text" name="name" /><br /><br />
+        <label>Email:</label>
+        <input type="email" name="email" /><br /><br />
+        <button type="submit">Submit Form 1</button>
+      </form>
+    </div>
+
+    <div id="form2" class="form-container">
+      <h2>Form 2</h2>
+      <form>
+        <label>Username:</label>
+        <input type="text" name="username" /><br /><br />
+        <label>Password:</label>
+        <input type="password" name="password" /><br /><br />
+        <button type="submit">Submit Form 2</button>
+      </form>
+    </div>
+    <script>
+      const form1Radio = document.getElementById("form1-radio");
+      const form2Radio = document.getElementById("form2-radio");
+
+      const form1 = document.getElementById("form1");
+      const form2 = document.getElementById("form2");
+
+      function toggleForms() {
+        if (form1Radio.checked) {
+          form1.classList.add("active");
+          form2.classList.remove("active");
+        } else {
+          form1.classList.remove("active");
+          form2.classList.add("active");
+        }
+      }
+      form1Radio.addEventListener("change", toggleForms);
+      form2Radio.addEventListener("change", toggleForms);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 200vh;
+      }
+      #top {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" id="top">to top</a>
+    <script>
+      let toTop = document.querySelector("#top");
+      window.addEventListener("scroll", (event) => {
+        // console.log(window.scrollY);
+
+        if (window.scrollY > 200) {
+          toTop.style.display = "block";
+        } else {
+          toTop.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

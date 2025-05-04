@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Character Counter</h1>
+      <textarea
+        id="text-input"
+        placeholder="Type something..."
+        rows="8"
+        oninput="checkCount()"
+      ></textarea>
+      <p><span id="char-count">0</span> / 150 characters</p>
+    </div>
+
+    <script>
+      const textInput = document.querySelector("#text-input");
+      const charCount = document.querySelector("#char-count");
+
+      function checkCount() {
+        const currentLength = textInput.value.length;
+        charCount.textContent = currentLength;
+
+        if (currentLength > 150) {
+          charCount.style.color = "red";
+        } else {
+          charCount.style.color = "green";
+        }
+      }
+    </script>
+  </body>
+</html>
